@@ -2,8 +2,6 @@ body {
   margin: 0;
   font-family: 'IM Fell DW Pica', serif;
   background-color: #fefaf3;
-  background-image: url('images/parchment.png');
-  background-size: cover;
   color: #2f1b0c;
   overflow: hidden;
   position: relative;
@@ -13,6 +11,26 @@ body {
   background-position: center;
 
 }
+
+@keyframes parchmentFlutter {
+  0%   { opacity: 1; transform: scale(1);}
+  45%  { opacity: 0.98; transform: scale(1.003);}
+  70%  { opacity: 0.97; transform: scale(1.001);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+body::before {
+  content: '';
+  background-image: url('images/parchment.jpg');
+  background-size: cover;
+  opacity: 0.7;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  animation: parchmentFlutter 8s infinite ease-in-out alternate;
+}
+
 
 .container {
   position: relative;
