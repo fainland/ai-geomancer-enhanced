@@ -131,6 +131,25 @@ body::before {
   margin-bottom: 1.5rem;
 }
 
+.answer-btn {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #2f1b0c;
+  border: 1px solid rgba(60, 40, 20, 0.4);
+  padding: 0.6em 1.2em;
+  font-family: 'IM Fell DW Pica', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.answer-btn:hover {
+  background-color: rgba(255, 255, 240, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 0 8px rgba(80, 60, 30, 0.2);
+}
+
+
 #answers {
   display: flex;
   flex-direction: column;

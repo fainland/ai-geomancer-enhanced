@@ -30,7 +30,7 @@ function showNextQuestion() {
   const btn = document.createElement('button');
   btn.innerText = option;
   btn.style.opacity = 0;
-  btn.style.transition = 'opacity 0.5s ease';
+  btn.style.transition = 'opacity 0.5s ease, transofrm 0.3s ease';
   btn.className = 'answer-btn';
   btn.onclick = () => {
     answersChosen.push(option);
@@ -40,6 +40,7 @@ function showNextQuestion() {
   answerBox.appendChild(btn);
   setTimeout(() => {
     btn.style.opacity = 1;
+	btn.style.transofrm = 'translateY(0)';
   }, 200 * index); // staggered fade-in
 });
 
