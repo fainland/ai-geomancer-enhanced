@@ -119,3 +119,23 @@ body::before {
   100% { opacity: 0; transform: translateY(-4em) scale(1);}
 }
 
+#question-box {
+  max-width: 600px;
+  margin: 4rem auto;
+  text-align: center;
+  font-family: 'IM Fell DW Pica', serif;
+}
+
+#question-text {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+

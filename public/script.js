@@ -26,31 +26,54 @@ function showNextQuestion() {
   document.getElementById('question-text').innerText = q.text;
   const answerBox = document.getElementById('answers');
   answerBox.innerHTML = '';
-  q.options.forEach(option => {
-    const btn = document.createElement('button');
-    btn.innerText = option;
-    btn.onclick = () => {
-      answersChosen.push(option);
-      currentQuestion++;
-      showNextQuestion();
-    };
-    answerBox.appendChild(btn);
-  });
+  q.options.forEach((option, index) => {
+  const btn = document.createElement('button');
+  btn.innerText = option;
+  btn.style.opacity = 0;
+  btn.style.transition = 'opacity 0.5s ease';
+  btn.className = 'answer-btn';
+  btn.onclick = () => {
+    answersChosen.push(option);
+    currentQuestion++;
+    showNextQuestion();
+  };
+  answerBox.appendChild(btn);
+  setTimeout(() => {
+    btn.style.opacity = 1;
+  }, 200 * index); // staggered fade-in
+});
+
 }
 
 function computePrediction() {
   document.getElementById('question-box').style.display = 'none';
+
   fetch('/api/prediction')
     .then(res => res.json())
     .then(data => {
       const combined = answersChosen.join(', ');
+      const interp = getInterpretation(data.figure, answersChosen);
+
       document.getElementById('symbol').innerText = symbols[data.figure] || '?';
       document.getElementById('interpretation').innerText =
-        `Figure: ${data.figure}\nPlanetary Hour: ${data.planetaryHour}\nYou answered: ${combined}`;
+        `Figure: ${data.figure}\nPlanetary Hour: ${data.planetaryHour}\n\n${interp}`;
+
+      document.getElementById('result-container').style.display = 'block';
     });
+
 }
 
 document.addEventListener('DOMContentLoaded', showNextQuestion);
+
+function getInterpretation(figure, answers) {
+  const themes = answers.join(' | ').toLowerCase();
+  if (figure === 'Via') return "You are in motion. Change surrounds you.";
+  if (figure === 'Tristitia') return "A weight presses—but it teaches clarity.";
+  if (figure === 'Albus' && themes.includes("stream")) return "Peace lies in flowing toward the source.";
+  if (figure === 'Puella' && themes.includes("watching")) return "Receptivity and grace will shape your path.";
+  // etc...
+  return "The signs combine into a subtle whisper—trust what flickered when you chose.";
+}
 
 
 const symbols = {
