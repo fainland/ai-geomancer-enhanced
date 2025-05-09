@@ -97,3 +97,25 @@ body::before {
   0% { transform: translateY(0) rotate(0deg); }
   100% { transform: translateY(-100vh) rotate(360deg); }
 }
+
+#sprite-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+.sprite {
+  position: absolute;
+  font-family: monospace;
+  font-size: 1.4rem;
+  color: rgba(40, 20, 10, 0.5);
+  animation: drift 8s ease-in-out forwards;
+}
+
+@keyframes drift {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-2em) scale(1.05);}
+  100% { opacity: 0; transform: translateY(-4em) scale(1);}
+}
+
