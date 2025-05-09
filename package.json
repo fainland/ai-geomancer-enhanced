@@ -1,7 +1,7 @@
 {
   "name": "geomancy-site",
   "version": "1.0.0",
-  "description": "A geomancy prediction web app",
+  "description": "An immersive geomancy prediction site",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

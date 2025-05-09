@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Geomancer's Gaze</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="background-animation"></div>
-  <div class="container fade-in">
-    <h1 class="title">Geomantic Revelation</h1>
-    <div id="symbol" class="symbol-area"></div>
-    <p id="interpretation" class="interpretation-text fade-in-delay"></p>
+  <div class="background-symbols">
+    <div class="symbol-float">☽</div>
+    <div class="symbol-float delay1">♃</div>
+    <div class="symbol-float delay2">♂</div>
+    <div class="symbol-float delay3">♄</div>
   </div>
+  <div class="container">
+    <h1 class="title fade-in">Geomantic Revelation</h1>
+    <div id="symbol" class="symbol-area fade-in delay1"></div>
+    <p id="interpretation" class="interpretation-text fade-in delay2"></p>
+  </div>
+<audio autoplay loop>
+  <source src="audio/exotic_drone.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
   <script src="script.js"></script>
 </body>
 </html>
